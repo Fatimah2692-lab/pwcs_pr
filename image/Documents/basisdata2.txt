@@ -1,0 +1,172 @@
+Microsoft Windows [Version 10.0.22631.5699]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Hype>cd c:\
+
+c:\>xampp\mysql\bin\mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'database' at line 1
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| fatimah1           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sosial_profile     |
+| test               |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [(none)]> use sosisal_profile;
+ERROR 1049 (42000): Unknown database 'sosisal_profile'
+MariaDB [(none)]> use sosial_profile;
+Database changed
+MariaDB [sosial_profile]> creat table user;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'creat table user' at line 1
+MariaDB [sosial_profile]> creat table user(
+    -> nickname varchar(20)primary key,
+    -> password varchar(50),
+    -> foto_pf varchar(20),
+    -> name varchar(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'creat table user(
+nickname varchar(20)primary key,
+password varchar(50),
+foto...' at line 1
+MariaDB [sosial_profile]> create table user(
+    -> nickname varchar(20)primary key,
+    -> password varchar(50),
+    -> foto_pf varchar(20),
+    -> name varchar(20));
+Query OK, 0 rows affected (0.027 sec)
+
+MariaDB [sosial_profile]> create followers(
+    -> followers_name varchar(20),
+    -> name va;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'followers(
+followers_name varchar(20),
+name va' at line 1
+MariaDB [sosial_profile]> create followers(
+    -> followers_name varchar(20)primary key,
+    -> name varchar(20),
+    -> password(50),
+    -> foto_pf(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'followers(
+followers_name varchar(20)primary key,
+name varchar(20),
+password(...' at line 1
+MariaDB [sosial_profile]> create followers(
+    -> followers_name varchar(20)primary key,
+    -> name varchar(20),
+    -> password varchar(50),
+    -> foto_pf varchar(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'followers(
+followers_name varchar(20)primary key,
+name varchar(20),
+password ...' at line 1
+MariaDB [sosial_profile]>  create table followers(
+    -> followers_name varchar(20)primary key,
+    -> name varchar(20),
+    -> password varchar(50),
+    -> foto_pf varchar(20));
+Query OK, 0 rows affected (0.070 sec)
+
+MariaDB [sosial_profile]> create table following(
+    -> following_name varchar(20)primary key,
+    -> name varchar(20),
+    -> password varchar(50),
+    -> foto_pf varchar(20));
+Query OK, 0 rows affected (0.015 sec)
+
+MariaDB [sosial_profile]> create table post(
+    -> foto_vid varchar(20)primary key,
+    -> caption varchar(50),
+    -> song varchar(20),
+    -> location varchar(40),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 5
+MariaDB [sosial_profile]> create table post(
+    -> nickname varchar(20)primary key,
+    -> foto_vid varchar(20)
+    -> caption varchar(50),
+    -> song varchar(20),
+    -> location varchar(40),
+    -> date_time date);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'varchar(50),
+song varchar(20),
+location varchar(40),
+date_time date)' at line 4
+MariaDB [sosial_profile]> foto_vid varchar(20),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'foto_vid varchar(20),' at line 1
+MariaDB [sosial_profile]>  create table post(
+    -> nickname varchar(20)primary key,
+    -> foto_vid varchar(20)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3
+MariaDB [sosial_profile]> create table post(
+    -> nickname varchar(20)primary key,
+    -> foto_vid varchar(20),
+    -> caption varchar(50),
+    -> song varchar(20),
+    -> location varchar(40),
+    -> date_time date);
+Query OK, 0 rows affected (0.069 sec)
+
+MariaDB [sosial_profile]> desc user;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| nickname | varchar(20) | NO   | PRI | NULL    |       |
+| password | varchar(50) | YES  |     | NULL    |       |
+| foto_pf  | varchar(20) | YES  |     | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.074 sec)
+
+MariaDB [sosial_profile]> desc followers;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| followers_name | varchar(20) | NO   | PRI | NULL    |       |
+| name           | varchar(20) | YES  |     | NULL    |       |
+| password       | varchar(50) | YES  |     | NULL    |       |
+| foto_pf        | varchar(20) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.018 sec)
+
+MariaDB [sosial_profile]> desc following;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| following_name | varchar(20) | NO   | PRI | NULL    |       |
+| name           | varchar(20) | YES  |     | NULL    |       |
+| password       | varchar(50) | YES  |     | NULL    |       |
+| foto_pf        | varchar(20) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.072 sec)
+
+MariaDB [sosial_profile]> desc post;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| nickname  | varchar(20) | NO   | PRI | NULL    |       |
+| foto_vid  | varchar(20) | YES  |     | NULL    |       |
+| caption   | varchar(50) | YES  |     | NULL    |       |
+| song      | varchar(20) | YES  |     | NULL    |       |
+| location  | varchar(40) | YES  |     | NULL    |       |
+| date_time | date        | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+6 rows in set (0.022 sec)
+
+MariaDB [sosial_profile]>

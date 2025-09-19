@@ -17,9 +17,10 @@
                 rgb(180, 143, 149) , 
                 rgba(194, 195, 90, 0.686));
                 color:beige;
-                padding-top: 20px;
+                padding-top: 20px; 
                 padding-bottom: 20px;
         }
+        
         .nav{
             background-color: rgba(106, 72, 10, 0.651);
             width: 100%;

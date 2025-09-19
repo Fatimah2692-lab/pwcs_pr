@@ -1,0 +1,183 @@
+
+Setting environment for using XAMPP for Windows.
+Fatimah@FATIMAHAZ c:\xampp
+# mysql\bin
+'mysql\bin' is not recognized as an internal or external command,
+operable program or batch file.
+
+Fatimah@FATIMAHAZ c:\xampp
+# mysql\bin\mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| fatimah1           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> USE fatimah1;
+Database changed
+MariaDB [fatimah1]> CREATE TABLE siswa(
+    -> nisn CHAR(10)PRIMARY KEY,
+    -> nama_siswa VARCHAR(30)NOT NULL,
+    -> tgl_lahir DATE,
+    -> alamat VARCHAR(40),
+    -> tahun_masuk YEAR ));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 6
+MariaDB [fatimah1]>  CREATE TABLE siswa(
+    -> nisn CHAR(10)PRIMARY KEY,
+    -> nama_siswa VARCHAR(30)NOT NULL,
+    ->
+    -> tgl_lahir DATE,
+    -> alamat VARCHAR(40),
+    -> tahun_masuk YEAR );
+Query OK, 0 rows affected (0.017 sec)
+
+MariaDB [fatimah1]> DESC siswa;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| nisn        | char(10)    | NO   | PRI | NULL    |       |
+| nama_siswa  | varchar(30) | NO   |     | NULL    |       |
+| tgl_lahir   | date        | YES  |     | NULL    |       |
+| alamat      | varchar(40) | YES  |     | NULL    |       |
+| tahun_masuk | year(4)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.027 sec)
+
+MariaDB [fatimah1]> CREATE TABLE ortu(
+    -> id_ortu INT AUTO_INCREMENT PRIMARY KEY,
+    -> nisn CHAR(10),
+    -> nama_wali VARCHAR(40));
+Query OK, 0 rows affected (0.025 sec)
+
+MariaDB [fatimah1]> DESC ortu;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id_ortu   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nisn      | char(10)    | YES  |     | NULL    |                |
+| nama_wali | varchar(40) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.025 sec)
+
+MariaDB [fatimah1]> show tables;
++--------------------+
+| Tables_in_fatimah1 |
++--------------------+
+| ortu               |
+| siswa              |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [fatimah1]> ALTER TABLE siswa ADD asal_sekolah VARCHAR(30);
+Query OK, 0 rows affected (0.012 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [fatimah1]> DESC siswa;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| nisn         | char(10)    | NO   | PRI | NULL    |       |
+| nama_siswa   | varchar(30) | NO   |     | NULL    |       |
+| tgl_lahir    | date        | YES  |     | NULL    |       |
+| alamat       | varchar(40) | YES  |     | NULL    |       |
+| tahun_masuk  | year(4)     | YES  |     | NULL    |       |
+| asal_sekolah | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.021 sec)
+
+MariaDB [fatimah1]> ALTER TABLE siswa MODIFY alamat TEXT;
+Query OK, 0 rows affected (0.068 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [fatimah1]> DESC siswa;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| nisn         | char(10)    | NO   | PRI | NULL    |       |
+| nama_siswa   | varchar(30) | NO   |     | NULL    |       |
+| tgl_lahir    | date        | YES  |     | NULL    |       |
+| alamat       | text        | YES  |     | NULL    |       |
+| tahun_masuk  | year(4)     | YES  |     | NULL    |       |
+| asal_sekolah | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.018 sec)
+
+MariaDB [fatimah1]> ALTER TABLE siswa CHANGE nama_siswa nama VARCHAR(30);
+Query OK, 0 rows affected (0.059 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [fatimah1]> DESC siswa;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| nisn         | char(10)    | NO   | PRI | NULL    |       |
+| nama         | varchar(30) | YES  |     | NULL    |       |
+| tgl_lahir    | date        | YES  |     | NULL    |       |
+| alamat       | text        | YES  |     | NULL    |       |
+| tahun_masuk  | year(4)     | YES  |     | NULL    |       |
+| asal_sekolah | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.023 sec)
+
+MariaDB [fatimah1]> DESC ortu;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id_ortu   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nisn      | char(10)    | YES  |     | NULL    |                |
+| nama_wali | varchar(40) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.023 sec)
+
+MariaDB [fatimah1]> ALTER TABLE ortu DROP nisn;
+Query OK, 0 rows affected (0.067 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [fatimah1]> DESC ortu;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id_ortu   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama_wali | varchar(40) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+2 rows in set (0.024 sec)
+
+MariaDB [fatimah1]> RENAME TABLE siswa TO tbi_siswa;
+Query OK, 0 rows affected (0.053 sec)
+
+MariaDB [fatimah1]> show tables;
++--------------------+
+| Tables_in_fatimah1 |
++--------------------+
+| ortu               |
+| tbi_siswa          |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [fatimah1]> DROP TABLE ortu;
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [fatimah1]> show tables;
++--------------------+
+| Tables_in_fatimah1 |
++--------------------+
+| tbi_siswa          |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [fatimah1]> DROP DATABASE

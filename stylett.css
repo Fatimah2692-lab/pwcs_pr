@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background-color: #334155;
+  color: white;
+  padding: 15px 0;
+}
+
+.header h4 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* Navigation */
+.nav {
+  background-color: #334155;
+  padding: 10px 0;
+  border-top: 1px solid #475569;
+}
+
+.nav-link ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.nav-link li {
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-link li:hover {
+  color: #14b8a6;
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+  display: none;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+/* Hero Section */
+.saya {
+  background-color: #14b8a6;
+  color: white;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #334155;
+}
+
+.saya h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.saya p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.portfolio h3 {
+  font-size: 24px;
+  color: #334155;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.portfolio-item {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+  margin: 0 auto;
+}
+
+.portfolio-item:nth-child(1) {
+  background-color: #dc2626;
+}
+.portfolio-item:nth-child(2) {
+  background-color: #ea580c;
+}
+.portfolio-item:nth-child(3) {
+  background-color: #334155;
+}
+.portfolio-item:nth-child(4) {
+  background-color: #2563eb;
+}
+.portfolio-item:nth-child(5) {
+  background-color: #eab308;
+}
+.portfolio-item:nth-child(6) {
+  background-color: #a3a3a3;
+}
+
+/* About Section */
+.about {
+  background-color: #14b8a6;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 24px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+.contact {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.contact h3 {
+  font-size: 24px;
+  color: #334155;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.btn-submit {
+  background-color: #14b8a6;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-submit:hover {
+  background-color: #0f766e;
+}
+
+/* Footer */
+.footer {
+  background-color: #334155;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.footer h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    float: right;
+  }
+
+  .line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .nav-link {
+    display: none;
+    width: 100%;
+  }
+
+  #nav-toggle:checked ~ .nav-link {
+    display: block;
+  }
+
+  .nav-link ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
